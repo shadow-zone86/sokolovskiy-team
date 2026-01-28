@@ -1,17 +1,6 @@
-<script setup lang="ts">
-defineOptions({ name: 'VisitServicesSection' })
-/**
- * Виджет: блок услуг/направлений. Нумерованные карточки с L-образным акцентом.
- * Данные из config, без логики. SOLID: только отображение списка.
- */
-import { siteContent } from '@/shared/config/siteContent'
-
-const { services } = siteContent
-</script>
-
 <template>
   <section
-    :id="siteContent.sections.services"
+    :id="content.sections.services"
     class="visit-services"
     aria-labelledby="visit-services-title"
   >
@@ -19,7 +8,7 @@ const { services } = siteContent
       id="visit-services-title"
       class="visit-services__title"
     >
-      {{ siteContent.servicesTitle }}
+      {{ content.servicesTitle }}
     </h2>
     <div class="visit-services__list">
       <article
@@ -40,6 +29,16 @@ const { services } = siteContent
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { inject } from 'vue'
+import { SITE_CONTENT_STORE } from '@/shared/config'
+
+defineOptions({ name: 'VisitServicesSection' })
+
+const { content } = inject(SITE_CONTENT_STORE)!
+const { services } = content
+</script>
 
 <style scoped lang="scss">
 .visit-services {

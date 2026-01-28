@@ -1,1 +1,1 @@
-export type { Profile, ProfileMetrics } from './types'
+export type { Profile, ProfileMetrics } from './model/types'

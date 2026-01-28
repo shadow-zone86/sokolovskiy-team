@@ -1,24 +1,3 @@
-<script setup lang="ts">
-/**
- * Переиспользуемая кнопка. SOLID: только отображение и эмит, без бизнес-логики.
- */
-defineOptions({ name: 'UiButton' })
-
-interface Props {
-  variant?: 'primary' | 'ghost'
-  type?: 'button' | 'submit'
-  href?: string
-  disabled?: boolean
-}
-
-withDefaults(defineProps<Props>(), {
-  variant: 'primary',
-  type: 'button',
-  href: undefined,
-  disabled: false,
-})
-</script>
-
 <template>
   <component
     :is="href ? 'a' : 'button'"
@@ -31,6 +10,24 @@ withDefaults(defineProps<Props>(), {
     <slot />
   </component>
 </template>
+
+<script setup lang="ts">
+interface Props {
+  variant?: 'primary' | 'ghost'
+  type?: 'button' | 'submit'
+  href?: string
+  disabled?: boolean
+}
+
+defineOptions({ name: 'UiButton' })
+
+withDefaults(defineProps<Props>(), {
+  variant: 'primary',
+  type: 'button',
+  href: undefined,
+  disabled: false,
+})
+</script>
 
 <style scoped lang="scss">
 .ui-button {

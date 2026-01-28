@@ -1,7 +1,5 @@
 @use 'variables' as v;
 
-// ========== Media (breakpoints) ==========
-
 @mixin media-min($breakpoint) {
   @if $breakpoint == 'sm' {
     @media (min-width: v.$breakpoint-sm) { @content; }
@@ -44,12 +42,9 @@
   @media (min-width: $min-val) and (max-width: $max-val) { @content; }
 }
 
-// Алиас (обратная совместимость)
 @mixin respond-to($breakpoint) {
   @include media-min($breakpoint) { @content; }
 }
-
-// ========== Flex ==========
 
 @mixin flex($direction: row, $wrap: nowrap, $align: stretch, $justify: flex-start, $gap: 0) {
   display: flex;
@@ -108,8 +103,6 @@
   flex: none;
 }
 
-// ========== Spacing (margin / padding) ==========
-
 @mixin margin($top: null, $right: null, $bottom: null, $left: null) {
   @if $top != null { margin-top: $top; }
   @if $right != null { margin-right: $right; }
@@ -152,7 +145,6 @@
   padding: $value;
 }
 
-// Spacing по осям с использованием переменных ($spacing-1, $spacing-2 и т.д.)
 @mixin spacing-inline($gap) {
   gap: $gap;
 }
@@ -162,8 +154,6 @@
     margin-top: $gap;
   }
 }
-
-// ========== Прочее ==========
 
 @mixin visually-hidden {
   position: absolute;

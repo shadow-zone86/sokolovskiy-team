@@ -1,4 +1,2 @@
-// Глобальный файл — подключается через vite.config (additionalData).
-// Переменные и миксины переэкспортируются, в компонентах доступны через @use "global" as *.
 @forward 'variables';
 @forward 'mixins';

@@ -1,17 +1,6 @@
-<script setup lang="ts">
-defineOptions({ name: 'VisitHero' })
-/**
- * Виджет: герой-блок. Заголовок с акцентом, текст, фото.
- * Использует useExperienceYears из shared — стаж считается автоматически.
- */
-import { siteContent } from '@/shared/config/siteContent'
-
-const { hero, profile } = siteContent
-</script>
-
 <template>
   <section
-    :id="siteContent.sections.hero"
+    :id="content.sections.hero"
     class="visit-hero"
   >
     <div class="visit-hero__content">
@@ -40,6 +29,16 @@ const { hero, profile } = siteContent
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { inject } from 'vue'
+import { SITE_CONTENT_STORE } from '@/shared/config'
+
+defineOptions({ name: 'VisitHero' })
+
+const { content } = inject(SITE_CONTENT_STORE)!
+const { hero, profile } = content
+</script>
 
 <style scoped lang="scss">
 .visit-hero {

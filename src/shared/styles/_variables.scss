@@ -1,13 +1,9 @@
-// ========== Палитра цветов ==========
-
-// Primary
 $color-primary: #2563eb;
 $color-primary-hover: #1d4ed8;
 $color-primary-active: #1e40af;
 $color-primary-light: #dbeafe;
 $color-primary-muted: #93c5fd;
 
-// Semantic
 $color-success: #16a34a;
 $color-success-hover: #15803d;
 $color-success-light: #dcfce7;
@@ -24,7 +20,6 @@ $color-info: #0891b2;
 $color-info-hover: #0e7490;
 $color-info-light: #cffafe;
 
-// Neutrals (grayscale)
 $color-white: #ffffff;
 $color-black: #000000;
 
@@ -39,7 +34,6 @@ $color-gray-700: #374151;
 $color-gray-800: #1f2937;
 $color-gray-900: #111827;
 
-// Text & background (на базе палитры)
 $color-text: $color-gray-800;
 $color-text-muted: $color-gray-500;
 $color-text-inverse: $color-white;
@@ -50,26 +44,23 @@ $color-bg-elevated: $color-white;
 $color-border: $color-gray-200;
 $color-border-focus: $color-primary;
 
-// ========== Spacing (отступы) ==========
 $spacing-unit: 8px;
 $spacing-0: 0;
-$spacing-1: $spacing-unit;        // 8px
-$spacing-2: $spacing-unit * 2;   // 16px
-$spacing-3: $spacing-unit * 3;   // 24px
-$spacing-4: $spacing-unit * 4;   // 32px
-$spacing-5: $spacing-unit * 5;   // 40px
-$spacing-6: $spacing-unit * 6;   // 48px
-$spacing-8: $spacing-unit * 8;   // 64px
-$spacing-10: $spacing-unit * 10; // 80px
+$spacing-1: $spacing-unit;
+$spacing-2: $spacing-unit * 2;
+$spacing-3: $spacing-unit * 3;
+$spacing-4: $spacing-unit * 4;
+$spacing-5: $spacing-unit * 5;
+$spacing-6: $spacing-unit * 6;
+$spacing-8: $spacing-unit * 8;
+$spacing-10: $spacing-unit * 10;
 
-// Алиасы для обратной совместимости
 $spacing-xs: $spacing-1;
 $spacing-sm: $spacing-2;
 $spacing-md: $spacing-3;
 $spacing-lg: $spacing-4;
 $spacing-xl: $spacing-6;
 
-// ========== Breakpoints (media) ==========
 $breakpoint-xs: 0;
 $breakpoint-sm: 640px;
 $breakpoint-md: 768px;
@@ -77,8 +68,7 @@ $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 $breakpoint-2xl: 1536px;
 
-// ========== Тема «Сайт-визитка» (тёмная + зелёный акцент) ==========
-$page-padding-x: 100px; // горизонтальный отступ контента страницы (слева и справа)
+$page-padding-x: 100px;
 $visit-bg: #0d0d0d;
 $visit-bg-soft: #141414;
 $visit-text: #fafafa;

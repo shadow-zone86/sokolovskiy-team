@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vue-tsc -b --noEmit && vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "test:run": "vitest run",
     "lint": "eslint src",
     "typecheck": "vue-tsc --noEmit",
     "typecheck:build": "vue-tsc -b --noEmit",
@@ -43,6 +45,7 @@
     "sass": "^1.77.8",
     "typescript": "~5.6.2",
     "vite": "^6.0.3",
+    "vitest": "^2.1.6",
     "vue-tsc": "^2.1.10"
   },
   "lint-staged": {

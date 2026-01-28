@@ -1,16 +1,6 @@
-<script setup lang="ts">
-defineOptions({ name: 'VisitAboutSection' })
-/**
- * Виджет: секция «О себе» — заголовок и абзацы текста.
- */
-import { siteContent } from '@/shared/config/siteContent'
-
-const { about } = siteContent
-</script>
-
 <template>
   <section
-    :id="siteContent.sections.about"
+    :id="content.sections.about"
     class="visit-about"
     aria-labelledby="visit-about-title"
   >
@@ -31,6 +21,16 @@ const { about } = siteContent
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { inject } from 'vue'
+import { SITE_CONTENT_STORE } from '@/shared/config'
+
+defineOptions({ name: 'VisitAboutSection' })
+
+const { content } = inject(SITE_CONTENT_STORE)!
+const { about } = content
+</script>
 
 <style scoped lang="scss">
 .visit-about {
