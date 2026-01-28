@@ -16,22 +16,7 @@
     >
       {{ metricsLead }}
     </p>
-    <div class="visit-metrics__grid">
-      <article
-        v-for="(metric, index) in metrics"
-        :key="metric.key"
-        class="visit-metrics__card"
-      >
-        <span
-          class="visit-metrics__number"
-          aria-hidden="true"
-        >
-          {{ String(index + 1).padStart(2, '0') }}
-        </span>
-        <span class="visit-metrics__value">{{ getMetricValue(metric) }}</span>
-        <span class="visit-metrics__label">{{ metric.label }}</span>
-      </article>
-    </div>
+    <MetricsGrid />
     <p
       v-if="metricsNote"
       class="visit-metrics__note"
@@ -43,25 +28,13 @@
 
 <script setup lang="ts">
 import { inject } from 'vue'
-import { useExperienceYears } from '@/shared/lib/useExperienceYears'
+import { MetricsGrid } from '@/features/metrics-grid'
 import { SITE_CONTENT_STORE } from '@/shared/config'
 
 defineOptions({ name: 'VisitKeyMetrics' })
 
 const { content } = inject(SITE_CONTENT_STORE)!
-const { profile, metricsTitle, metricsLead, metricsNote, metrics } = content
-const experienceYears = useExperienceYears(profile.experienceFromYear)
-
-function getMetricValue(
-  metric: (typeof metrics)[number]
-): string {
-  if (metric.key === 'experienceYears') {
-    return String(experienceYears)
-  }
-  const raw = profile[metric.key as keyof typeof profile]
-  const num = typeof raw === 'number' ? raw : 0
-  return `${num}${metric.suffix ?? ''}`
-}
+const { metricsTitle, metricsLead, metricsNote } = content
 </script>
 
 <style scoped lang="scss">
@@ -103,27 +76,6 @@ function getMetricValue(
   }
 }
 
-.visit-metrics__grid {
-  display: grid;
-  gap: $spacing-4;
-  width: 100%;
-  max-width: $breakpoint-2xl;
-
-  @include media-min('sm') {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-5;
-  }
-
-  @include media-min('lg') {
-    grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-6;
-  }
-
-  @include media-min('xl') {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
 .visit-metrics__note {
   margin: $spacing-8 0 0;
   max-width: 38em;
@@ -138,62 +90,4 @@ function getMetricValue(
   }
 }
 
-.visit-metrics__card {
-  @include flex-col($spacing-2, flex-start, flex-start);
-  position: relative;
-  padding: $spacing-4 $spacing-4 $spacing-4 ($spacing-4 + 20px);
-  background: $visit-bg-soft;
-  border: 1px solid $visit-border;
-  border-radius: 8px;
-  min-height: 100px;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: $spacing-4;
-    width: 3px;
-    height: 32px;
-    background: $visit-nav-line;
-    border-radius: 0 2px 2px 0;
-  }
-
-  @include media-min('md') {
-    padding: $spacing-5 $spacing-5 $spacing-5 ($spacing-5 + 24px);
-    min-height: 120px;
-
-    &::before {
-      height: 40px;
-      top: $spacing-5;
-    }
-  }
-}
-
-.visit-metrics__number {
-  position: absolute;
-  top: $spacing-3;
-  right: $spacing-3;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: $visit-text-muted;
-  opacity: 0.7;
-}
-
-.visit-metrics__value {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: $visit-accent;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-
-  @include media-min('md') {
-    font-size: 2rem;
-  }
-}
-
-.visit-metrics__label {
-  font-size: 0.875rem;
-  line-height: 1.4;
-  color: $visit-text-muted;
-}
 </style>

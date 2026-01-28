@@ -21,7 +21,11 @@
 - Фича **consult-cta**: кнопка «Заказать консультацию» (ConsultCtaButton). Сценарий инкапсулирован в фиче — сейчас mailto, позже можно переключить на модальное окно без правок виджета
 - Фича **header-brand**: блок бренда в хедере (имя + слоган, переход на главную). HeaderBrand — сценарий «переход на главную» и стили перенесены в фичу
 - Фича **contact-phone**: ссылка на телефон (PhoneLink). Сценарий «позвонить» инкапсулирован в фиче, стили перенесены
-- Фича **contact-telegram**: ссылка на Telegram (TelegramLink). Сценарий «написать в Telegram» инкапсулирован в фиче, SVG-иконка и стили перенесены
+- Фича **contact-telegram**: ссылка на Telegram (TelegramLink). Сценарий «написать в Telegram» инкапсулирован в фиче, SVG-иконка и стили перенесены. Проп `showLabel` (boolean) — показывать текст «Telegram» рядом с иконкой
+- Фича **go-to-home**: ссылка «На главную» (HomeLink). Сценарий перехода на hero-секцию инкапсулирован в фиче
+- Фича **metrics-grid**: сетка метрик (MetricsGrid), логика вычисления значений в lib/getMetricValue. Виджет KeyMetrics композирует фичу
+- Декоративный фон секций: миксин `decorative-background` (SVG-паттерн), применяется в одном месте — PageHome.vue (DRY)
+- Vitest: тесты для getMetricValue (metrics-grid/lib)
 
 ### Changed
 
@@ -31,6 +35,8 @@
   - 2024: ЕРЦ ЖКХ — ЛК жителя/УК, legacy, UI-kit (39+ компонентов, Storybook, unit-тесты), Keycloak, React Native, внутренний Vue 3 framework (FSD, DI, тесты, документация, митапы)
 - Кнопка «Заказать консультацию» в хедере ведёт на `mailto:rogueak@yandex.ru` (используется `contacts.consultUrl`)
 - Виджет **Header**: пользовательские сценарии вынесены в фичи. Хедер композирует `<HeaderBrand />`, `<PhoneLink />`, `<TelegramLink />` и `<ConsultCtaButton />` вместо собственной разметки и логики; стили контактов и бренда — в фичах. Header больше не зависит от конфига напрямую (убраны inject и contacts)
+- Виджет **Footer**: ссылки вынесены в фичи. Footer композирует `<HomeLink />` и `<TelegramLink :show-label="true" />` вместо прямой разметки и contacts
+- Виджет **KeyMetrics**: блок сетки метрик вынесен в фичу metrics-grid; виджет композирует заголовок, lead, `<MetricsGrid />` и note
 
 ## [0.0.0] — текущая версия
 

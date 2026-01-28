@@ -128,8 +128,13 @@ src/
 │   │   └── ui/              # HeaderBrand.vue
 │   ├── contact-phone/      # Ссылка на телефон (позвонить)
 │   │   └── ui/              # PhoneLink.vue
-│   └── contact-telegram/   # Ссылка на Telegram (написать)
-│       └── ui/              # TelegramLink.vue
+│   ├── contact-telegram/   # Ссылка на Telegram (написать, showLabel)
+│   │   └── ui/              # TelegramLink.vue
+│   ├── go-to-home/          # Ссылка «На главную» (hero)
+│   │   └── ui/              # HomeLink.vue
+│   └── metrics-grid/        # Сетка метрик (KeyMetrics)
+│       ├── lib/              # getMetricValue, getMetricValue.spec.ts
+│       └── ui/               # MetricsGrid.vue
 │
 ├── entities/               # 📊 Сущности (типы, модели)
 │   └── profile/            # Типы профиля
@@ -157,8 +162,8 @@ app → pages → widgets → features → entities → shared
 
 - **app** — provide store, роутер, глобальные стили
 - **pages** — композиция виджетов
-- **widgets** — блоки UI, используют features и shared (например, Header — consult-cta, header-brand, contact-phone, contact-telegram)
-- **features** — логика сценариев (section-nav, consult-cta, header-brand, contact-phone, contact-telegram)
+- **widgets** — блоки UI, используют features и shared (например, Header — consult-cta, header-brand, contact-phone, contact-telegram; Footer — go-to-home, contact-telegram; KeyMetrics — metrics-grid)
+- **features** — логика сценариев (section-nav, consult-cta, header-brand, contact-phone, contact-telegram, go-to-home, metrics-grid)
 - **entities** — типы и модели
 - **shared** — конфиг, утилиты, стили, UI-кит
 

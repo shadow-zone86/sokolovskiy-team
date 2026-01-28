@@ -4,7 +4,7 @@ export function getCurrentSectionIndex(
 ): number {
   let maxRatio = 0
   let maxIndex = 0
-  sectionOrder.forEach((id, index) => {
+  sectionOrder.forEach((id: string, index: number): void => {
     const r = ratios[id] ?? 0
     if (r > maxRatio) {
       maxRatio = r
