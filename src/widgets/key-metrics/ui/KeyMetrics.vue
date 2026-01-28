@@ -6,7 +6,7 @@ defineOptions({ name: 'VisitKeyMetrics' })
 import { useExperienceYears } from '@/shared/lib/useExperienceYears'
 import { siteContent } from '@/shared/config/siteContent'
 
-const { profile, metricsTitle, metricsLead, metrics } = siteContent
+const { profile, metricsTitle, metricsLead, metricsNote, metrics } = siteContent
 const experienceYears = useExperienceYears(profile.experienceFromYear)
 
 function getMetricValue(
@@ -55,6 +55,12 @@ function getMetricValue(
         <span class="visit-metrics__label">{{ metric.label }}</span>
       </article>
     </div>
+    <p
+      v-if="metricsNote"
+      class="visit-metrics__note"
+    >
+      {{ metricsNote }}
+    </p>
   </section>
 </template>
 
@@ -62,13 +68,13 @@ function getMetricValue(
 .visit-metrics {
   @include flex-col($spacing-0, flex-start, center);
   justify-content: center;
-  @include padding-y($spacing-6);
+  @include padding-y($spacing-8);
   @include padding-x($spacing-4);
   border-top: 1px solid $visit-border;
 
   @include media-min('lg') {
     @include padding-x($page-padding-x);
-    @include padding-y($spacing-8);
+    @include padding-y($spacing-10);
   }
 }
 
@@ -86,14 +92,14 @@ function getMetricValue(
 
 .visit-metrics__lead {
   margin: 0 0 $spacing-6;
-  max-width: 36em;
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  max-width: 42em;
+  font-size: 1rem;
+  line-height: 1.65;
   color: $visit-text-muted;
 
   @include media-min('lg') {
     margin-bottom: $spacing-8;
-    font-size: 1rem;
+    font-size: 1.0625rem;
   }
 }
 
@@ -115,6 +121,20 @@ function getMetricValue(
 
   @include media-min('xl') {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.visit-metrics__note {
+  margin: $spacing-8 0 0;
+  max-width: 38em;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: $visit-text-muted;
+  font-style: italic;
+
+  @include media-min('lg') {
+    margin-top: $spacing-10;
+    font-size: 1rem;
   }
 }
 

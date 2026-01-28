@@ -20,13 +20,13 @@ export const siteContent = {
   contacts: {
     phone: '+7 913 520 91 23',
     phoneHref: 'tel:+79135209123',
-    vkUrl: 'https://vk.com/id18922800',
-    vkLabel: 'ВКонтакте',
-    vkDisplay: 'vk.com/id18922800',
     telegramUrl: 'https://t.me/shadow_zone_86',
     telegramLabel: '@shadow_zone_86',
     ctaPrimary: 'Связаться',
     ctaConsult: 'Заказать консультацию',
+  },
+  footer: {
+    copyright: 'sokolovskiy-team',
   },
   hero: {
     headline: 'Создаю надёжный и масштабируемый фронтенд',
@@ -34,6 +34,79 @@ export const siteContent = {
     lead: 'Помогаю продуктам и командам: от проектирования интерфейсов до внедрения практик, которые упрощают поддержку и рост кодовой базы.',
     leadMore: 'Готов к задачам разного уровня: от верстки и доработки UI до проектирования архитектуры, рефакторинга и помощи команде в выборе технологий и процессов. Пишите в Telegram или звоните — обсудим ваш проект.',
   },
+  skillsTitle: 'Навыки и подход',
+  skillsLead: 'Специализируюсь на создании масштабируемых веб-приложений с использованием современных технологий и архитектурных подходов.',
+  skillsBlocks: [
+    {
+      title: 'Личные качества',
+      items: [
+        'Ответственность и исполнительность в выполнении задач',
+        'Дисциплинированность и пунктуальность',
+        'Стремление к постоянному профессиональному развитию',
+        'Умение работать в команде и эффективно коммуницировать',
+        'Опыт наставничества и передачи знаний коллегам',
+      ],
+    },
+    {
+      title: 'Подход к работе',
+      items: [
+        'Пишу чистый, поддерживаемый код с понятными комментариями',
+        'Следую принципам SOLID, DRY, KISS, TDD',
+        'Применяю Feature-Sliced Design (FSD) для организации масштабируемых проектов',
+        'Применяю архитектурные паттерны (MVC, MVVM, ООП)',
+        'Активно изучаю новые технологии и практики',
+        'Умею разбираться в legacy-коде и проводить рефакторинг',
+      ],
+    },
+    {
+      title: 'Профессиональные навыки',
+      items: [
+        'Разработка SPA и SSR приложений',
+        'Vue.js 2/3: Option API и Composition API',
+        'React: функциональные компоненты, хуки, Context API',
+        'State Management: Vuex, Pinia, Redux',
+        'SSR Frameworks: Next.js, Nuxt.js',
+      ],
+    },
+    {
+      title: 'UI Frameworks & Libraries',
+      items: [
+        'Vue Router, Axios, Apollo',
+        'React Router, React Query, Apollo Client',
+        'Bootstrap, Vuetify, Quasar, DevExtreme, PrimeVue, Element Plus',
+        'Material-UI, Ant Design, Chakra UI',
+      ],
+    },
+    {
+      title: 'HTML/CSS',
+      items: [
+        'Препроцессоры: SASS/SCSS',
+        'CSS Frameworks: Tailwind CSS',
+        'Адаптивная вёрстка: Flex, Grid, БЭМ',
+        'Вёрстка по макетам (Figma, Zeplin)',
+        'Разработка UI-kit и дизайн-систем',
+      ],
+    },
+    {
+      title: 'Инструменты и технологии',
+      items: [
+        'Пакетные менеджеры: npm, yarn',
+        'Системы контроля версий: Git, GitLab (GitFlow)',
+        'Дизайн: Figma, Photoshop, Zeplin',
+        'Конструкторы: Tilda, 1C-umi',
+      ],
+    },
+    {
+      title: 'Дополнительные навыки',
+      items: [
+        'Разработка дизайн-макетов (Figma, Photoshop)',
+        'Backend разработка: Node.js (Express, Nest, Prisma), PHP (Yii2, Laravel), PostgreSQL',
+        'Работа с legacy-кодом и рефакторинг',
+        'Наставничество и code review',
+        'Чтение технической литературы',
+      ],
+    },
+  ],
   about: {
     title: 'О себе',
     paragraphs: [
@@ -75,7 +148,8 @@ export const siteContent = {
     },
   ],
   metricsTitle: 'В цифрах',
-  metricsLead: 'Опыт и результаты в ключевых областях работы.',
+  metricsLead: 'Опыт и результаты в ключевых областях работы: проекты, стаж, технологии, лидерство и наставничество. Ниже — ключевые показатели, которые отражают масштаб и глубину экспертизы.',
+  metricsNote: 'Цифры подкрепляют подход к работе: от чистого кода и архитектуры до передачи опыта команде.',
   /** Карточки блока «В цифрах»: key — поле profile или 'experienceYears' (вычисляется), suffix — доп. к числу (например '+') */
   metrics: [
     { key: 'projectsCount', suffix: '+', label: 'реализованных проектов' },
@@ -120,18 +194,19 @@ export const siteContent = {
     mainPage: 'Главная страница',
     scrollDown: 'Пролистните вниз',
     /** Подписи секций для левой части навигации (порядок как в sectionOrder) */
-    sectionTitles: ['Главная страница', 'О себе', 'Направления работы', 'В цифрах', 'Примеры работ'] as const,
+    sectionTitles: ['Главная страница', 'О себе', 'Навыки и подход', 'Направления работы', 'В цифрах', 'Примеры работ'] as const,
   },
   sections: {
     hero: 'hero',
     about: 'about',
+    skills: 'skills',
     services: 'services',
     metrics: 'metrics',
     portfolio: 'portfolio',
     contacts: 'contacts',
   },
   /** Порядок секций для навигации (полноэкранные «страницы») */
-  sectionOrder: ['hero', 'about', 'services', 'metrics', 'portfolio'] as const,
+  sectionOrder: ['hero', 'about', 'skills', 'services', 'metrics', 'portfolio'] as const,
 } as const
 
 export type SiteContent = typeof siteContent

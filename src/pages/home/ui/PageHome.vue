@@ -6,9 +6,11 @@
 import { VisitHeader } from '@/widgets/header'
 import { VisitHero } from '@/widgets/hero'
 import { VisitAboutSection } from '@/widgets/about-section'
+import { VisitSkillsSection } from '@/widgets/skills-section'
 import { VisitServicesSection } from '@/widgets/services-section'
 import { VisitKeyMetrics } from '@/widgets/key-metrics'
 import { VisitPortfolioSection } from '@/widgets/portfolio-section'
+import { VisitFooter } from '@/widgets/footer'
 import { VisitPageNav } from '@/widgets/page-nav'
 </script>
 
@@ -20,10 +22,12 @@ import { VisitPageNav } from '@/widgets/page-nav'
     </div>
     <main class="visit-main">
       <VisitAboutSection />
+      <VisitSkillsSection />
       <VisitServicesSection />
       <VisitKeyMetrics />
       <VisitPortfolioSection />
     </main>
+    <VisitFooter />
     <VisitPageNav />
   </div>
 </template>

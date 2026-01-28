@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineOptions({ name: 'VisitContactsBlock' })
 /**
- * Виджет: блок контактов — телефон, VK, Telegram.
+ * Виджет: блок контактов — телефон, Telegram.
  */
 import { siteContent } from '@/shared/config/siteContent'
 
@@ -24,15 +24,6 @@ const { contacts } = siteContent
       >
         <span class="visit-contacts__label">Телефон</span>
         <span class="visit-contacts__value">{{ contacts.phone }}</span>
-      </a>
-      <a
-        :href="contacts.vkUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="visit-contacts__item"
-      >
-        <span class="visit-contacts__label">ВКонтакте</span>
-        <span class="visit-contacts__value">{{ contacts.vkDisplay }}</span>
       </a>
       <a
         :href="contacts.telegramUrl"
