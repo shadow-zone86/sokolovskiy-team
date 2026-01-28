@@ -119,9 +119,17 @@ src/
 │   └── contacts-block/
 │
 ├── features/               # ⚡ Фичи (пользовательские сценарии)
-│   └── section-nav/        # Навигация по секциям
-│       ├── lib/             # Чистая логика (getCurrentSectionIndex, formatPageNum)
-│       └── ui/              # SectionNav.vue
+│   ├── section-nav/        # Навигация по секциям
+│   │   ├── lib/             # Чистая логика (getCurrentSectionIndex, formatPageNum)
+│   │   └── ui/              # SectionNav.vue
+│   ├── consult-cta/        # Кнопка «Заказать консультацию» (mailto → позже модалка)
+│   │   └── ui/              # ConsultCtaButton.vue
+│   ├── header-brand/       # Блок бренда в хедере (имя, слоган, переход на главную)
+│   │   └── ui/              # HeaderBrand.vue
+│   ├── contact-phone/      # Ссылка на телефон (позвонить)
+│   │   └── ui/              # PhoneLink.vue
+│   └── contact-telegram/   # Ссылка на Telegram (написать)
+│       └── ui/              # TelegramLink.vue
 │
 ├── entities/               # 📊 Сущности (типы, модели)
 │   └── profile/            # Типы профиля
@@ -149,8 +157,8 @@ app → pages → widgets → features → entities → shared
 
 - **app** — provide store, роутер, глобальные стили
 - **pages** — композиция виджетов
-- **widgets** — блоки UI, используют features и shared
-- **features** — логика сценариев (section-nav)
+- **widgets** — блоки UI, используют features и shared (например, Header — consult-cta, header-brand, contact-phone, contact-telegram)
+- **features** — логика сценариев (section-nav, consult-cta, header-brand, contact-phone, contact-telegram)
 - **entities** — типы и модели
 - **shared** — конфиг, утилиты, стили, UI-кит
 
