@@ -26,6 +26,8 @@
 - Фича **metrics-grid**: сетка метрик (MetricsGrid), логика вычисления значений в lib/getMetricValue. Виджет KeyMetrics композирует фичу
 - Декоративный фон секций: миксин `decorative-background` (SVG-паттерн), применяется в одном месте — PageHome.vue (DRY)
 - Vitest: тесты для getMetricValue (metrics-grid/lib)
+- Контакты: `githubUrl`, `githubLabel` — ссылка на GitHub в футере, блоке контактов и README
+- Портфолио: пример работы ЕРЦ ЖКХ (erc-gkh.ru) — Nuxt, TypeScript, FSD, Tailwind, SEO
 
 ### Changed
 
@@ -37,6 +39,8 @@
 - Виджет **Header**: пользовательские сценарии вынесены в фичи. Хедер композирует `<HeaderBrand />`, `<PhoneLink />`, `<TelegramLink />` и `<ConsultCtaButton />` вместо собственной разметки и логики; стили контактов и бренда — в фичах. Header больше не зависит от конфига напрямую (убраны inject и contacts)
 - Виджет **Footer**: ссылки вынесены в фичи. Footer композирует `<HomeLink />` и `<TelegramLink :show-label="true" />` вместо прямой разметки и contacts
 - Виджет **KeyMetrics**: блок сетки метрик вынесен в фичу metrics-grid; виджет композирует заголовок, lead, `<MetricsGrid />` и note
+- Виджет **ContactsBlock**: декомпозирован по фичам — использует `<PhoneLink />` и `<TelegramLink :show-label="true" />` вместо сырых ссылок; добавлена ссылка на GitHub
+- Footer: добавлена ссылка на GitHub (contacts.githubUrl) между HomeLink и TelegramLink
 
 ## [0.0.0] — текущая версия
 

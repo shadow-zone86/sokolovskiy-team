@@ -162,7 +162,7 @@ app → pages → widgets → features → entities → shared
 
 - **app** — provide store, роутер, глобальные стили
 - **pages** — композиция виджетов
-- **widgets** — блоки UI, используют features и shared (например, Header — consult-cta, header-brand, contact-phone, contact-telegram; Footer — go-to-home, contact-telegram; KeyMetrics — metrics-grid)
+- **widgets** — блоки UI, используют features и shared (например, Header — consult-cta, header-brand, contact-phone, contact-telegram; Footer — go-to-home, GitHub, contact-telegram; ContactsBlock — contact-phone, contact-telegram; KeyMetrics — metrics-grid)
 - **features** — логика сценариев (section-nav, consult-cta, header-brand, contact-phone, contact-telegram, go-to-home, metrics-grid)
 - **entities** — типы и модели
 - **shared** — конфиг, утилиты, стили, UI-кит
@@ -248,7 +248,7 @@ npm run analyze          # Сборка + bundle analyzer (dist/stats.html)
 
 ## 📧 Контакты
 
-**Разработчик**: [@shadow_zone_86](https://t.me/shadow_zone_86)
+**Разработчик**: [@shadow_zone_86](https://t.me/shadow_zone_86) · [GitHub](https://github.com/shadow-zone86)
 
 ---
 
