@@ -1,16 +1,6 @@
-<script setup lang="ts">
-defineOptions({ name: 'VisitContactsBlock' })
-/**
- * Виджет: блок контактов — телефон, Telegram.
- */
-import { siteContent } from '@/shared/config/siteContent'
-
-const { contacts } = siteContent
-</script>
-
 <template>
   <section
-    :id="siteContent.sections.contacts"
+    :id="content.sections.contacts"
     class="visit-contacts"
     aria-label="Контакты"
   >
@@ -37,6 +27,16 @@ const { contacts } = siteContent
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { inject } from 'vue'
+import { SITE_CONTENT_STORE } from '@/shared/config'
+
+defineOptions({ name: 'VisitContactsBlock' })
+
+const { content } = inject(SITE_CONTENT_STORE)!
+const { contacts } = content
+</script>
 
 <style scoped lang="scss">
 .visit-contacts {

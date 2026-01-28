@@ -1,23 +1,19 @@
-<script setup lang="ts">
-defineOptions({ name: 'VisitSkillsSection' })
-/**
- * Виджет: секция «Навыки и подход» — блоки с личными качествами, подходом, навыками.
- */
-import { siteContent } from '@/shared/config/siteContent'
-
-const { skillsTitle, skillsLead, skillsBlocks } = siteContent
-</script>
-
 <template>
   <section
-    :id="siteContent.sections.skills"
+    :id="content.sections.skills"
     class="visit-skills"
     aria-labelledby="visit-skills-title"
   >
-    <h2 id="visit-skills-title" class="visit-skills__title">
+    <h2
+      id="visit-skills-title"
+      class="visit-skills__title"
+    >
       {{ skillsTitle }}
     </h2>
-    <p v-if="skillsLead" class="visit-skills__lead">
+    <p
+      v-if="skillsLead"
+      class="visit-skills__lead"
+    >
       {{ skillsLead }}
     </p>
     <div class="visit-skills__grid">
@@ -42,6 +38,16 @@ const { skillsTitle, skillsLead, skillsBlocks } = siteContent
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { inject } from 'vue'
+import { SITE_CONTENT_STORE } from '@/shared/config'
+
+defineOptions({ name: 'VisitSkillsSection' })
+
+const { content } = inject(SITE_CONTENT_STORE)!
+const { skillsTitle, skillsLead, skillsBlocks } = content
+</script>
 
 <style scoped lang="scss">
 .visit-skills {

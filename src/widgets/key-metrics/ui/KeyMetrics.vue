@@ -1,29 +1,6 @@
-<script setup lang="ts">
-defineOptions({ name: 'VisitKeyMetrics' })
-/**
- * Виджет: ключевые цифры. Данные из config + useExperienceYears для стажа.
- */
-import { useExperienceYears } from '@/shared/lib/useExperienceYears'
-import { siteContent } from '@/shared/config/siteContent'
-
-const { profile, metricsTitle, metricsLead, metricsNote, metrics } = siteContent
-const experienceYears = useExperienceYears(profile.experienceFromYear)
-
-function getMetricValue(
-  metric: (typeof metrics)[number]
-): string {
-  if (metric.key === 'experienceYears') {
-    return String(experienceYears)
-  }
-  const raw = profile[metric.key as keyof typeof profile]
-  const num = typeof raw === 'number' ? raw : 0
-  return `${num}${metric.suffix ?? ''}`
-}
-</script>
-
 <template>
   <section
-    :id="siteContent.sections.metrics"
+    :id="content.sections.metrics"
     class="visit-metrics"
     aria-labelledby="visit-metrics-title"
   >
@@ -63,6 +40,29 @@ function getMetricValue(
     </p>
   </section>
 </template>
+
+<script setup lang="ts">
+import { inject } from 'vue'
+import { useExperienceYears } from '@/shared/lib/useExperienceYears'
+import { SITE_CONTENT_STORE } from '@/shared/config'
+
+defineOptions({ name: 'VisitKeyMetrics' })
+
+const { content } = inject(SITE_CONTENT_STORE)!
+const { profile, metricsTitle, metricsLead, metricsNote, metrics } = content
+const experienceYears = useExperienceYears(profile.experienceFromYear)
+
+function getMetricValue(
+  metric: (typeof metrics)[number]
+): string {
+  if (metric.key === 'experienceYears') {
+    return String(experienceYears)
+  }
+  const raw = profile[metric.key as keyof typeof profile]
+  const num = typeof raw === 'number' ? raw : 0
+  return `${num}${metric.suffix ?? ''}`
+}
+</script>
 
 <style scoped lang="scss">
 .visit-metrics {

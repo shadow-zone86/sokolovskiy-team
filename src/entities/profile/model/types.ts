@@ -1,7 +1,3 @@
-/**
- * Сущность: профиль эксперта (имя, роль, метрики).
- * SOLID: интерфейс стабилен, детали — в конфиге.
- */
 export interface ProfileMetrics {
   experienceYears: number
   projectsCount: number

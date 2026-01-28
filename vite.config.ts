@@ -1,9 +1,14 @@
 import { fileURLToPath, URL } from 'node:url'
+import type { UserConfigExport } from 'vite'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'node',
+  },
   plugins: [
     vue(),
     visualizer({
@@ -25,4 +30,4 @@ export default defineConfig({
       },
     },
   },
-})
+} as UserConfigExport)

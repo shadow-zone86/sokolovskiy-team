@@ -1,19 +1,3 @@
-<script setup lang="ts">
-/**
- * Страница: сайт-визитка. Композиция виджетов.
- * FSD: страница только собирает виджеты, не содержит бизнес-логики.
- */
-import { VisitHeader } from '@/widgets/header'
-import { VisitHero } from '@/widgets/hero'
-import { VisitAboutSection } from '@/widgets/about-section'
-import { VisitSkillsSection } from '@/widgets/skills-section'
-import { VisitServicesSection } from '@/widgets/services-section'
-import { VisitKeyMetrics } from '@/widgets/key-metrics'
-import { VisitPortfolioSection } from '@/widgets/portfolio-section'
-import { VisitFooter } from '@/widgets/footer'
-import { VisitPageNav } from '@/widgets/page-nav'
-</script>
-
 <template>
   <div class="visit-page">
     <div class="visit-page__screen visit-page__screen--first">
@@ -31,6 +15,18 @@ import { VisitPageNav } from '@/widgets/page-nav'
     <VisitPageNav />
   </div>
 </template>
+
+<script setup lang="ts">
+import { VisitHeader } from '@/widgets/header'
+import { VisitHero } from '@/widgets/hero'
+import { VisitAboutSection } from '@/widgets/about-section'
+import { VisitSkillsSection } from '@/widgets/skills-section'
+import { VisitServicesSection } from '@/widgets/services-section'
+import { VisitKeyMetrics } from '@/widgets/key-metrics'
+import { VisitPortfolioSection } from '@/widgets/portfolio-section'
+import { VisitFooter } from '@/widgets/footer'
+import { VisitPageNav } from '@/widgets/page-nav'
+</script>
 
 <style scoped lang="scss">
 .visit-page {

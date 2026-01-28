@@ -1,25 +1,6 @@
-<script setup lang="ts">
-defineOptions({ name: 'VisitPortfolioSection' })
-/**
- * Виджет: примеры работ — карточки проектов/направлений.
- */
-import { siteContent } from '@/shared/config/siteContent'
-
-interface PortfolioItem {
-  id: string
-  title: string
-  description: string
-  tech: string
-  url: string | null
-}
-
-const { portfolioTitle, portfolioLead } = siteContent
-const portfolio = siteContent.portfolio as readonly PortfolioItem[]
-</script>
-
 <template>
   <section
-    :id="siteContent.sections.portfolio"
+    :id="content.sections.portfolio"
     class="visit-portfolio"
     aria-labelledby="visit-portfolio-title"
   >
@@ -67,6 +48,18 @@ const portfolio = siteContent.portfolio as readonly PortfolioItem[]
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { inject } from 'vue'
+import { SITE_CONTENT_STORE } from '@/shared/config'
+import { PortfolioItem } from '../model/types'
+
+defineOptions({ name: 'VisitPortfolioSection' })
+
+const { content } = inject(SITE_CONTENT_STORE)!
+const { portfolioTitle, portfolioLead } = content
+const portfolio = content.portfolio as readonly PortfolioItem[]
+</script>
 
 <style scoped lang="scss">
 .visit-portfolio {
