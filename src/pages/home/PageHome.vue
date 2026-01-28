@@ -41,6 +41,7 @@ import { VisitPageNav } from '@/widgets/page-nav'
   :deep(.visit-hero) {
     flex: 1;
     min-height: 0;
+    @include decorative-background;
   }
 }
 
@@ -52,5 +53,6 @@ import { VisitPageNav } from '@/widgets/page-nav'
 .visit-main > * {
   min-height: 100vh;
   box-sizing: border-box;
+  @include decorative-background;
 }
 </style>

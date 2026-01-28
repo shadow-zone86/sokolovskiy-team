@@ -166,3 +166,24 @@
   white-space: nowrap;
   border: 0;
 }
+
+// Декоративный фон для виджетов: SVG паттерн с сеткой линий, слегка видимая
+@mixin decorative-background {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='%2322c55e' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E");
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
