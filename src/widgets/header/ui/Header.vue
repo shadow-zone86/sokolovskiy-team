@@ -22,11 +22,27 @@ const { profile, contacts } = siteContent
     </div>
     <div class="visit-header__actions">
       <div class="visit-header__contacts">
-        <a :href="contacts.phoneHref" class="visit-header__link">{{ contacts.phone }}</a>
-        <a :href="contacts.vkUrl" target="_blank" rel="noopener noreferrer" class="visit-header__link">VK</a>
-        <a :href="contacts.telegramUrl" target="_blank" rel="noopener noreferrer" class="visit-header__link">{{ contacts.telegramLabel }}</a>
+        <a
+          :href="contacts.phoneHref"
+          class="visit-header__link"
+        >{{ contacts.phone }}</a>
+        <a
+          :href="contacts.vkUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="visit-header__link"
+        >VK</a>
+        <a
+          :href="contacts.telegramUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="visit-header__link"
+        >{{ contacts.telegramLabel }}</a>
       </div>
-      <UiButton :href="`#${siteContent.sections.hero}`" variant="primary">
+      <UiButton
+        :href="`#${siteContent.sections.hero}`"
+        variant="primary"
+      >
         {{ contacts.ctaConsult }}
       </UiButton>
     </div>

@@ -27,10 +27,16 @@ function getMetricValue(
     class="visit-metrics"
     aria-labelledby="visit-metrics-title"
   >
-    <h2 id="visit-metrics-title" class="visit-metrics__title">
+    <h2
+      id="visit-metrics-title"
+      class="visit-metrics__title"
+    >
       {{ metricsTitle }}
     </h2>
-    <p v-if="metricsLead" class="visit-metrics__lead">
+    <p
+      v-if="metricsLead"
+      class="visit-metrics__lead"
+    >
       {{ metricsLead }}
     </p>
     <div class="visit-metrics__grid">
@@ -39,7 +45,10 @@ function getMetricValue(
         :key="metric.key"
         class="visit-metrics__card"
       >
-        <span class="visit-metrics__number" aria-hidden="true">
+        <span
+          class="visit-metrics__number"
+          aria-hidden="true"
+        >
           {{ String(index + 1).padStart(2, '0') }}
         </span>
         <span class="visit-metrics__value">{{ getMetricValue(metric) }}</span>

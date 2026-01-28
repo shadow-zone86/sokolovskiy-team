@@ -15,7 +15,10 @@ const { services } = siteContent
     class="visit-services"
     aria-labelledby="visit-services-title"
   >
-    <h2 id="visit-services-title" class="visit-services__title">
+    <h2
+      id="visit-services-title"
+      class="visit-services__title"
+    >
       {{ siteContent.servicesTitle }}
     </h2>
     <div class="visit-services__list">

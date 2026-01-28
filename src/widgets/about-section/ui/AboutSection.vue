@@ -9,8 +9,15 @@ const { about } = siteContent
 </script>
 
 <template>
-  <section :id="siteContent.sections.about" class="visit-about" aria-labelledby="visit-about-title">
-    <h2 id="visit-about-title" class="visit-about__title">
+  <section
+    :id="siteContent.sections.about"
+    class="visit-about"
+    aria-labelledby="visit-about-title"
+  >
+    <h2
+      id="visit-about-title"
+      class="visit-about__title"
+    >
       {{ about.title }}
     </h2>
     <div class="visit-about__content">

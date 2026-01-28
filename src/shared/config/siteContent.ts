@@ -128,6 +128,7 @@ export const siteContent = {
     services: 'services',
     metrics: 'metrics',
     portfolio: 'portfolio',
+    contacts: 'contacts',
   },
   /** Порядок секций для навигации (полноэкранные «страницы») */
   sectionOrder: ['hero', 'about', 'services', 'metrics', 'portfolio'] as const,

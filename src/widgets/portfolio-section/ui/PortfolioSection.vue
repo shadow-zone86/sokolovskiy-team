@@ -5,7 +5,16 @@ defineOptions({ name: 'VisitPortfolioSection' })
  */
 import { siteContent } from '@/shared/config/siteContent'
 
-const { portfolioTitle, portfolioLead, portfolio } = siteContent
+interface PortfolioItem {
+  id: string
+  title: string
+  description: string
+  tech: string
+  url: string | null
+}
+
+const { portfolioTitle, portfolioLead } = siteContent
+const portfolio = siteContent.portfolio as readonly PortfolioItem[]
 </script>
 
 <template>
@@ -14,10 +23,16 @@ const { portfolioTitle, portfolioLead, portfolio } = siteContent
     class="visit-portfolio"
     aria-labelledby="visit-portfolio-title"
   >
-    <h2 id="visit-portfolio-title" class="visit-portfolio__title">
+    <h2
+      id="visit-portfolio-title"
+      class="visit-portfolio__title"
+    >
       {{ portfolioTitle }}
     </h2>
-    <p v-if="portfolioLead" class="visit-portfolio__lead">
+    <p
+      v-if="portfolioLead"
+      class="visit-portfolio__lead"
+    >
       {{ portfolioLead }}
     </p>
     <div class="visit-portfolio__grid">
@@ -26,7 +41,10 @@ const { portfolioTitle, portfolioLead, portfolio } = siteContent
         :key="item.id"
         class="visit-portfolio__card"
       >
-        <span class="visit-portfolio__number" aria-hidden="true">{{ item.id }}</span>
+        <span
+          class="visit-portfolio__number"
+          aria-hidden="true"
+        >{{ item.id }}</span>
         <h3 class="visit-portfolio__card-title">
           <a
             v-if="item.url"

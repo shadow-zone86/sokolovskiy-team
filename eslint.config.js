@@ -4,6 +4,16 @@ import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
+  {
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'storybook-static/**',
+      'coverage/**',
+      '*.config.js',
+      '*.config.ts',
+    ],
+  },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
@@ -29,6 +39,5 @@ export default tseslint.config(
         'import.meta': 'readonly',
       },
     },
-    ignores: ['dist/**', 'node_modules/**', 'storybook-static/**', '*.config.*'],
   }
 )

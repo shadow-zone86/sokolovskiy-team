@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vue-tsc -b --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --fix",
+    "lint": "eslint src",
     "typecheck": "vue-tsc --noEmit",
     "typecheck:build": "vue-tsc -b --noEmit",
     "storybook": "storybook dev -p 6006",

@@ -9,12 +9,19 @@ const { contacts } = siteContent
 </script>
 
 <template>
-  <section :id="siteContent.sections.contacts" class="visit-contacts" aria-label="Контакты">
+  <section
+    :id="siteContent.sections.contacts"
+    class="visit-contacts"
+    aria-label="Контакты"
+  >
     <h2 class="visit-contacts__title">
       Контакты
     </h2>
     <div class="visit-contacts__list">
-      <a :href="contacts.phoneHref" class="visit-contacts__item">
+      <a
+        :href="contacts.phoneHref"
+        class="visit-contacts__item"
+      >
         <span class="visit-contacts__label">Телефон</span>
         <span class="visit-contacts__value">{{ contacts.phone }}</span>
       </a>
