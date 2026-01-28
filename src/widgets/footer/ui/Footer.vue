@@ -9,6 +9,14 @@
       </p>
       <div class="visit-footer__links">
         <HomeLink class="visit-footer__link" />
+        <a
+          :href="contacts.githubUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="visit-footer__link"
+        >
+          {{ contacts.githubLabel }}
+        </a>
         <TelegramLink
           :show-label="true"
           class="visit-footer__link"
@@ -27,7 +35,7 @@ import { SITE_CONTENT_STORE } from '@/shared/config'
 defineOptions({ name: 'VisitFooter' })
 
 const { content } = inject(SITE_CONTENT_STORE)!
-const { footer } = content
+const { footer, contacts } = content
 const currentYear = new Date().getFullYear()
 </script>
 

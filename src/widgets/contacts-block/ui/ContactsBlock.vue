@@ -8,21 +8,25 @@
       Контакты
     </h2>
     <div class="visit-contacts__list">
-      <a
-        :href="contacts.phoneHref"
-        class="visit-contacts__item"
-      >
+      <div class="visit-contacts__item">
         <span class="visit-contacts__label">Телефон</span>
-        <span class="visit-contacts__value">{{ contacts.phone }}</span>
-      </a>
+        <PhoneLink class="visit-contacts__value" />
+      </div>
+      <div class="visit-contacts__item">
+        <span class="visit-contacts__label">Telegram</span>
+        <TelegramLink
+          :show-label="true"
+          class="visit-contacts__value"
+        />
+      </div>
       <a
-        :href="contacts.telegramUrl"
+        :href="contacts.githubUrl"
         target="_blank"
         rel="noopener noreferrer"
         class="visit-contacts__item"
       >
-        <span class="visit-contacts__label">Telegram</span>
-        <span class="visit-contacts__value">{{ contacts.telegramLabel }}</span>
+        <span class="visit-contacts__label">GitHub</span>
+        <span class="visit-contacts__value">{{ contacts.githubLabel }}</span>
       </a>
     </div>
   </section>
@@ -30,6 +34,8 @@
 
 <script setup lang="ts">
 import { inject } from 'vue'
+import { PhoneLink } from '@/features/contact-phone'
+import { TelegramLink } from '@/features/contact-telegram'
 import { SITE_CONTENT_STORE } from '@/shared/config'
 
 defineOptions({ name: 'VisitContactsBlock' })
