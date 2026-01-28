@@ -1,0 +1,53 @@
+{
+  "name": "sokolovskiy-team",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit",
+    "typecheck:build": "vue-tsc -b --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "analyze": "vite build",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "vue": "^3.5.13",
+    "vue-router": "^4.4.5",
+    "pinia": "^2.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@eslint/js": "^9.15.0",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-links": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/test": "^8.4.7",
+    "@storybook/vue3": "^8.4.7",
+    "@storybook/vue3-vite": "^8.4.7",
+    "@vitejs/plugin-vue": "^5.2.0",
+    "eslint": "^9.15.0",
+    "eslint-plugin-vue": "^9.31.0",
+    "globals": "^15.12.0",
+    "storybook": "^8.4.7",
+    "typescript-eslint": "^8.15.0",
+    "vue-eslint-parser": "^9.4.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "rollup-plugin-visualizer": "^5.12.0",
+    "sass": "^1.77.8",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.3",
+    "vue-tsc": "^2.1.10"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix"
+    ]
+  }
+}

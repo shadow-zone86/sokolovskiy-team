@@ -1,0 +1,5 @@
+// Глобальный файл — подключается через vite.config (additionalData).
+// Переменные и миксины доступны во всех компонентах без @use.
+// Используем @import для глобальной области (deprecated в Sass, но работает).
+@import 'variables';
+@import 'mixins';

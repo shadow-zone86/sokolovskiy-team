@@ -1,0 +1,178 @@
+@use 'variables' as v;
+
+// ========== Media (breakpoints) ==========
+
+@mixin media-min($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: v.$breakpoint-sm) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: v.$breakpoint-md) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: v.$breakpoint-lg) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: v.$breakpoint-xl) { @content; }
+  } @else if $breakpoint == '2xl' {
+    @media (min-width: v.$breakpoint-2xl) { @content; }
+  }
+}
+
+@mixin media-max($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (max-width: v.$breakpoint-sm - 1px) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (max-width: v.$breakpoint-md - 1px) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (max-width: v.$breakpoint-lg - 1px) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (max-width: v.$breakpoint-xl - 1px) { @content; }
+  } @else if $breakpoint == '2xl' {
+    @media (max-width: v.$breakpoint-2xl - 1px) { @content; }
+  }
+}
+
+@mixin media-between($min, $max) {
+  $min-val: v.$breakpoint-sm;
+  $max-val: v.$breakpoint-xl;
+  @if $min == 'sm' { $min-val: v.$breakpoint-sm; }
+  @if $min == 'md' { $min-val: v.$breakpoint-md; }
+  @if $min == 'lg' { $min-val: v.$breakpoint-lg; }
+  @if $min == 'xl' { $min-val: v.$breakpoint-xl; }
+  @if $max == 'sm' { $max-val: v.$breakpoint-sm - 1px; }
+  @if $max == 'md' { $max-val: v.$breakpoint-md - 1px; }
+  @if $max == 'lg' { $max-val: v.$breakpoint-lg - 1px; }
+  @if $max == 'xl' { $max-val: v.$breakpoint-xl - 1px; }
+  @media (min-width: $min-val) and (max-width: $max-val) { @content; }
+}
+
+// Алиас (обратная совместимость)
+@mixin respond-to($breakpoint) {
+  @include media-min($breakpoint) { @content; }
+}
+
+// ========== Flex ==========
+
+@mixin flex($direction: row, $wrap: nowrap, $align: stretch, $justify: flex-start, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  align-items: $align;
+  justify-content: $justify;
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+@mixin flex-row($gap: 0, $align: stretch, $justify: flex-start) {
+  display: flex;
+  flex-direction: row;
+  align-items: $align;
+  justify-content: $justify;
+  @if $gap != 0 { gap: $gap; }
+}
+
+@mixin flex-col($gap: 0, $align: stretch, $justify: flex-start) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align;
+  justify-content: $justify;
+  @if $gap != 0 { gap: $gap; }
+}
+
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between($direction: row, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: space-between;
+}
+
+@mixin flex-wrap($gap: 0) {
+  display: flex;
+  flex-wrap: wrap;
+  @if $gap != 0 { gap: $gap; }
+}
+
+@mixin flex-1 {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+@mixin flex-none {
+  flex: none;
+}
+
+// ========== Spacing (margin / padding) ==========
+
+@mixin margin($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top != null { margin-top: $top; }
+  @if $right != null { margin-right: $right; }
+  @if $bottom != null { margin-bottom: $bottom; }
+  @if $left != null { margin-left: $left; }
+}
+
+@mixin margin-x($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+
+@mixin margin-y($value) {
+  margin-top: $value;
+  margin-bottom: $value;
+}
+
+@mixin margin-all($value) {
+  margin: $value;
+}
+
+@mixin padding($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top != null { padding-top: $top; }
+  @if $right != null { padding-right: $right; }
+  @if $bottom != null { padding-bottom: $bottom; }
+  @if $left != null { padding-left: $left; }
+}
+
+@mixin padding-x($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+@mixin padding-y($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+@mixin padding-all($value) {
+  padding: $value;
+}
+
+// Spacing по осям с использованием переменных ($spacing-1, $spacing-2 и т.д.)
+@mixin spacing-inline($gap) {
+  gap: $gap;
+}
+
+@mixin spacing-block($gap) {
+  > * + * {
+    margin-top: $gap;
+  }
+}
+
+// ========== Прочее ==========
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
