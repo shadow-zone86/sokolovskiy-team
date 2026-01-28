@@ -44,7 +44,7 @@
         </a>
       </div>
       <UiButton
-        :href="`#${content.sections.hero}`"
+        :href="contacts.consultUrl"
         variant="primary"
       >
         {{ contacts.ctaConsult }}
